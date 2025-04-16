@@ -46,8 +46,8 @@ const ExtensionCards = ({ darkMode }) => {
             </h2>
             <p
               className={`${
-                darkMode ? "text-Neutral-300" : "text-Neutral-600 "
-              } font-light text-lg`}
+                darkMode ? "text-Neutral-300 font-light" : "text-Neutral-600 "
+              }  text-lg`}
             >
               {description}
             </p>
