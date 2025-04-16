@@ -1,27 +1,8 @@
 import ToggleButton from "./ToggleButton";
 import { useEffect, useState } from "react";
 
-const ExtensionCards = ({ darkMode }) => {
-  const [data, setData] = useState([]);
-
-  // fetching the data...
-  useEffect(() => {
-    const fetchCards = async () => {
-      try {
-        const response = await fetch("./data.json");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (err) {
-        console.log(`Network response was not ok:\n ${err}`);
-      }
-    };
-
-    fetchCards();
-  }, []);
-
+const Cards = ({ darkMode, data, setInitialData, initialData }) => {
+  // generating cards...
   const cards = data.map(({ logo, name, description, isActive }) => (
     <li
       key={name}
@@ -58,13 +39,21 @@ const ExtensionCards = ({ darkMode }) => {
           <button
             className={`${
               darkMode
-                ? "text-Neutral-100 border-Neutral-600 "
+                ? "text-Neutral-100 border-Neutral-600 drop-shadow"
                 : "border-Neutral-300 "
-            } border cursor-pointer text-lg drop-shadow rounded-full py-2 px-5 font-medium`}
+            } border cursor-pointer text-lg  rounded-full py-2 px-5 font-medium`}
           >
             Remove
           </button>
-          <ToggleButton isActive={isActive} darkMode={darkMode} />
+
+          {/* toggle active button */}
+          <ToggleButton
+            isActive={isActive}
+            id={name}
+            darkMode={darkMode}
+            initialData={initialData}
+            setInitialData={setInitialData}
+          />
         </div>
       </div>
     </li>
@@ -77,4 +66,4 @@ const ExtensionCards = ({ darkMode }) => {
   );
 };
 
-export default ExtensionCards;
+export default Cards;

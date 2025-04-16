@@ -1,7 +1,7 @@
 import { FiSearch } from "react-icons/fi";
 const Search = ({ searchTerm, setSearchTerm, darkMode }) => {
   return (
-    <div
+    <label
       id="search"
       className={` ${
         darkMode ? "bg-Neutral-700 shadow-black" : "bg-white shadow-Neutral-200"
@@ -14,12 +14,14 @@ const Search = ({ searchTerm, setSearchTerm, darkMode }) => {
         type="text"
         placeholder="Search extensions without hassle "
         className={`${
-          darkMode ? "text-Neutral-100 placeholder:text-Neutral-300" : ""
-        } text-lg flex-1 outline-none placeholder:font-extralight`}
+          darkMode
+            ? "text-Neutral-100 placeholder:text-Neutral-300 placeholder:font-extralight"
+            : "placeholder:font-light"
+        } text-lg flex-1 outline-none `}
         // value={searchTerm}
         // onChange={(e) => setSearchTerm(e.target.value)}
       />
-    </div>
+    </label>
   );
 };
 

@@ -1,21 +1,32 @@
 import { useState } from "react";
 
-const ToggleButton = ({ isActive, darkMode }) => {
+const ToggleButton = ({
+  isActive,
+  darkMode,
+  setInitialData,
+  initialData,
+  id,
+}) => {
   const [isActiveState, setIsActiveState] = useState(isActive);
 
-  const handleClick = () => {
+  const handleClick = (id) => {
     setIsActiveState((prev) => !prev);
+    const updatedData = initialData.map((item) => {
+      return item.name === id ? { ...item, isActive: !isActiveState } : item;
+    });
+    setInitialData(updatedData);
   };
-
   return (
     <button
-      onClick={handleClick}
+      onClick={() => handleClick(id)}
       className={`${
         isActiveState
           ? darkMode
             ? "bg-Red-400"
             : "bg-Red-700"
           : "bg-Neutral-300"
+      } ${
+        !isActiveState && darkMode ? "bg-Neutral-600" : ""
       } cursor-pointer relative w-13 h-7 toggled.hidden rounded-full p-1 transition-colors ease duration-500`}
     >
       <div

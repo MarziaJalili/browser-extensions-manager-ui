@@ -39,8 +39,19 @@ body {
 
 body.dark {
   background: var(--color-Dark-Gradient);
+
+  .selected-button {
+    background-color: var(--color-Red-400);
+    color: var(--color-Neutral-900);
+    border-color: var(--color-Red-400);
+    font-weight: 500;
+  }
 }
 
 .state-button {
   @apply rounded-full cursor-pointer shadow-lg pt-1 pb-1.5 px-5 border-1;
+}
+
+.selected-button {
+  @apply bg-Red-700 text-Neutral-0 border-Red-700;
 }
