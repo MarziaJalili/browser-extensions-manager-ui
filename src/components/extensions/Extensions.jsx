@@ -19,7 +19,7 @@ const Extensions = () => {
         </div>
       </section>
 
-      <div className="flex flex-col   items-center gap-5 container mx-auto">
+      <div className="flex flex-col w-full  items-center gap-5 lg:container mx-auto">
         <Search />
         <ExtensionCards />
       </div>

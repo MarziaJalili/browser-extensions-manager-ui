@@ -3,8 +3,8 @@ const Search = ({ searchTerm, setSearchTerm }) => {
   return (
     <div
       id="search"
-      className="flex bg-white px-3 w-full max-w-xl self-start  py-3.5
-    rounded-xl shadow-lg shadow-Neutral-200 gap-2 justify-between items-center mt-2"
+      className="flex bg-white px-3 w-full self-start  py-3.5
+    rounded-xl shadow-lg shadow-Neutral-200 gap-2 justify-between items-center mt-2 lg:w-xl"
     >
       <FiSearch className="text-Red-500 text-2xl" />
 
