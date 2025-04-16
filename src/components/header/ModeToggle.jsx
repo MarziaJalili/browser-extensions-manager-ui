@@ -1,20 +1,24 @@
-const ToggleButton = ({ darkMood, setDarkMood }) => {
+import { useState } from "react";
+
+const ModeToggle = ({ darkMode, setDarkMode }) => {
   // toggle the dark mood on and off...
-  const iconPath = darkMood
+  const iconPath = darkMode
     ? "./images/icon-sun.svg"
     : "./images/icon-moon.svg";
 
-  function changeMood() {
-    setDarkMood((prev) => !prev);
+  const changeMode = () => {
+    setDarkMode((prev) => !prev);
     const bodyClasses = document.body.classList;
 
     if (bodyClasses.contains("dark")) bodyClasses.add("bright");
     bodyClasses.toggle("dark");
-  }
+  };
   return (
     <button
-      className="bg-Neutral-100 p-3 rounded-xl cursor-pointer"
-      onClick={changeMood}
+      className={`${
+        darkMode ? "bg-Neutral-700" : "bg-Neutral-100"
+      } p-3 rounded-xl cursor-pointer`}
+      onClick={changeMode}
       aria-label="Toggles the Dark Mode"
     >
       <img src={iconPath} alt="Toggle Icon" />
@@ -22,4 +26,4 @@ const ToggleButton = ({ darkMood, setDarkMood }) => {
   );
 };
 
-export default ToggleButton;
+export default ModeToggle;

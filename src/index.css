@@ -36,3 +36,11 @@
 body {
   background: var(--color-Light-Gradient);
 }
+
+body.dark {
+  background: var(--color-Dark-Gradient);
+}
+
+.state-button {
+  @apply rounded-full cursor-pointer shadow-lg pt-1 pb-1.5 px-5 border-1;
+}
