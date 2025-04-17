@@ -1,7 +1,8 @@
 import ToggleButton from "./ToggleButton";
+import RemoveButton from "./RemoveButton";
 import { useEffect, useState } from "react";
 
-const Cards = ({ darkMode, data, setInitialData, initialData }) => {
+const Cards = ({ darkMode, data, setInitialData, initialData, setData }) => {
   // generating cards...
   const cards = data.map(({ logo, name, description, isActive }) => (
     <li
@@ -36,15 +37,13 @@ const Cards = ({ darkMode, data, setInitialData, initialData }) => {
         </div>
         <div className="flex justify-between items-center mt-8">
           {/* Footer area */}
-          <button
-            className={`${
-              darkMode
-                ? "text-Neutral-100 border-Neutral-600 drop-shadow"
-                : "border-Neutral-300 "
-            } border cursor-pointer text-lg  rounded-full py-2 px-5 font-medium`}
-          >
-            Remove
-          </button>
+          <RemoveButton
+            id={name}
+            darkMode={darkMode}
+            initialData={initialData}
+            setInitialData={setInitialData}
+            setData={setData}
+          />
 
           {/* toggle active button */}
           <ToggleButton

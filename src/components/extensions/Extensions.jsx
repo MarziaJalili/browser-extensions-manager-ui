@@ -71,7 +71,10 @@ const Extensions = ({ darkMode }) => {
           Extensions List
         </h1>
         <div className="state-btns flex gap-4 items-center justify-between">
-          <button className={btnStyle} onClick={(e) => handleClick("all", e)}>
+          <button
+            className={`${btnStyle} selected-button`}
+            onClick={(e) => handleClick("all", e)}
+          >
             All
           </button>
           <button
@@ -96,6 +99,7 @@ const Extensions = ({ darkMode }) => {
           setInitialData={setInitialData}
           initialData={initialData}
           data={data}
+          setData={setData}
         />
       </div>
     </article>

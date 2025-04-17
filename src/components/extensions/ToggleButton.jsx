@@ -9,6 +9,7 @@ const ToggleButton = ({
 }) => {
   const [isActiveState, setIsActiveState] = useState(isActive);
 
+  // reset the cards...
   const handleClick = (id) => {
     setIsActiveState((prev) => !prev);
     const updatedData = initialData.map((item) => {
@@ -16,6 +17,7 @@ const ToggleButton = ({
     });
     setInitialData(updatedData);
   };
+
   return (
     <button
       onClick={() => handleClick(id)}
