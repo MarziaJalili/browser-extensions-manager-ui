@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 const Extensions = ({ darkMode }) => {
   const [initialData, setInitialData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [data, setData] = useState([]);
 
   // fetching the data...
@@ -53,6 +54,11 @@ const Extensions = ({ darkMode }) => {
     });
   };
 
+  // filter based on the searched term
+  const filteredExtensions = data.filter((ext) =>
+    ext.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   // styling the button...
   const btnStyle = `${
     darkMode
@@ -93,12 +99,12 @@ const Extensions = ({ darkMode }) => {
       </section>
 
       <div className="flex flex-col w-full  items-center gap-5 lg:container mx-auto">
-        <Search darkMode={darkMode} />
+        <Search darkMode={darkMode} setSearchTerm={setSearchTerm} />
         <Cards
           darkMode={darkMode}
           setInitialData={setInitialData}
           initialData={initialData}
-          data={data}
+          data={filteredExtensions}
           setData={setData}
         />
       </div>

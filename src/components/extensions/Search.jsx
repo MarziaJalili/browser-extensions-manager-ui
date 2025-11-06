@@ -18,8 +18,8 @@ const Search = ({ searchTerm, setSearchTerm, darkMode }) => {
             ? "text-Neutral-100 placeholder:text-Neutral-300 placeholder:font-extralight"
             : "placeholder:font-light"
         } text-lg flex-1 outline-none `}
-        // value={searchTerm}
-        // onChange={(e) => setSearchTerm(e.target.value)}
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
       />
     </label>
   );
