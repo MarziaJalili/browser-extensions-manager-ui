@@ -11,7 +11,7 @@ const Cards = ({ darkMode, data, setInitialData, initialData, setData }) => {
         darkMode
           ? "bg-Neutral-700 border-Neutral-600"
           : "bg-white border-Neutral-200"
-      }  h-full p-5 rounded-3xl border  shadow-lg`}
+      }  h-full p-5 rounded-3xl border shadow-lg`}
     >
       <div className="flex flex-col h-full">
         {/* Ensure the flex direction is column */}
