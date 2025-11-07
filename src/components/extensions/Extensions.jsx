@@ -7,6 +7,7 @@ const Extensions = ({ darkMode }) => {
   const [initialData, setInitialData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [data, setData] = useState([]);
+  const [animData, setAnimData] = useState([]);
 
   // fetching the data...
   useEffect(() => {
@@ -19,6 +20,7 @@ const Extensions = ({ darkMode }) => {
         const jsonData = await response.json();
         setData(jsonData);
         setInitialData(jsonData);
+        setAnimData(jsonData);
       } catch (err) {
         console.log(`Network response was not ok:\n ${err}`);
       }
@@ -101,6 +103,7 @@ const Extensions = ({ darkMode }) => {
       <div className="flex flex-col w-full  items-center gap-5 lg:container mx-auto">
         <Search darkMode={darkMode} setSearchTerm={setSearchTerm} />
         <Cards
+          animData={animData}
           darkMode={darkMode}
           setInitialData={setInitialData}
           initialData={initialData}
