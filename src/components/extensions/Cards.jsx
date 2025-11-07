@@ -32,17 +32,21 @@ const Cards = ({
     cards.forEach((card, index) => {
       const anim = gsap.fromTo(
         card,
-        { opacity: 0, y: 50 },
         {
-          opacity: 1,
-          y: 0,
+          autoAlpha: 0,
+          yPercent: 20, // relative to card height
+        },
+        {
+          autoAlpha: 1,
+          yPercent: 0,
+
           duration: 0.6,
           ease: "power3.out",
           delay: index * 0.1,
           scrollTrigger: {
             trigger: card,
-            start: "top 90%",
-            toggleActions: "play none none reset",
+            start: "top 95%",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -60,7 +64,7 @@ const Cards = ({
         scrollTrigger: {
           trigger: paragraph,
           start: "top 90%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
         duration: 0.4,
         opacity: 0,
