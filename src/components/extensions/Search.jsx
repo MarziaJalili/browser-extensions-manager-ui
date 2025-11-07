@@ -1,4 +1,6 @@
 import { FiSearch } from "react-icons/fi";
+import { gsap } from "gsap";
+
 const Search = ({ searchTerm, setSearchTerm, darkMode }) => {
   return (
     <label
